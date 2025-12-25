@@ -1,0 +1,23 @@
+# Node
+node_modules/
+dist/
+.vite/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Env / OS
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,22 @@
+services:
+  api:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ../aut/api:/app
+    command: sh -c "pip install -r requirements.txt && python app.py"
+    ports:
+      - "5000:5000"
+
+  ui:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ../aut/ui:/app
+    environment:
+      - VITE_API_BASE=http://localhost:5000
+    command: sh -c "npm install && npm run dev"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
